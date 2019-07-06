@@ -8,9 +8,11 @@ import AddNote from './src/Screens/AddNote';
 import EditNote from './src/Screens/EditNote';
 import SideBar from './src/Sidebar/Sidebar';
 
+import { Provider } from 'react-redux';
+import store from './src/publics/redux/store';
+
 const AppDrawerNavigator = createDrawerNavigator({
     Home: { screen: Home },
-    Personal : { screen: Note },
     AddNote: { screen: AddNote },
     EditNote: { screen: EditNote },
   },
@@ -19,5 +21,13 @@ const AppDrawerNavigator = createDrawerNavigator({
   },
 );
 
-const appContainer = createAppContainer(AppDrawerNavigator);
-export default appContainer;
+const AppContainer = createAppContainer(AppDrawerNavigator);
+export default class App extends Component{
+	render(){
+		return(
+			<Provider store={store}>
+				<AppContainer/>
+			</Provider>
+		)
+	}
+}

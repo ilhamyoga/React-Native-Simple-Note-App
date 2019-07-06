@@ -1,34 +1,90 @@
 import React,{Component} from 'react';
-import {StyleSheet, FlatList, View, Text, TouchableOpacity} from 'react-native';
-import items from '../Data/items';
+import {StyleSheet, FlatList, View, Text, TouchableOpacity, Alert, RefreshControl, ActivityIndicator} from 'react-native';
 
-class listData extends Component{
+import { deleteNote, getNotes, getLoadData } from '../publics/redux/actions/notes'
+import { connect } from 'react-redux'
+
+const moment = require('moment');
+
+class ListData extends Component{
+
+  state = { 
+    page: 1
+  }
+
+  confirmDeleteNote(id){
+    //handler for Long Click
+    Alert.alert(
+      'Warning !',
+      'Are you sure delete this data ?',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        {text: 'Yes', onPress: () => this.deleteDataNote(id)},
+      ],
+      {cancelable: false},
+    );
+  }
+
+  loadMoreData = () => {
+    this.setState({sort: this.props.notes.sortBy})
+    if(this.state.page < this.props.notes.totalpage) {
+      this.setState({page : this.state.page + 1},
+        ()=>this.props.dispatch(getLoadData(this.state.page, this.state.sort))
+      )
+    }
+  }
+
+  getDataNotes(){
+    this.props.dispatch(getNotes())
+    this.setState({page: this.props.notes.page})
+
+  }
+
+  deleteDataNote(id) {
+    this.props.dispatch(deleteNote(id))
+    this.setState({page: this.props.notes.page})
+
+  }
+
   render(){
     return(
-      <View style={{flex: 1, margin: 5}}>
+      <View style={{flex: 1, marginLeft:15, marginRight:15}}>
         <FlatList 
-          data={items}
+          data={this.props.notes.data}
+          onEndReachedThreshold={0.1}
+          onEndReached={this.loadMoreData}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.props.notes.isLoading}
+              onRefresh={() => this.getDataNotes()}
+            />
+          }
           renderItem={({ item, index }) => (
             <TouchableOpacity 
               style={[styles.card,
                 {backgroundColor:
-                  (item.category == 'Learn')? '#2FC2DF' :
+                  (item.category == 'Holiday')? '#2FC2DF' :
                   (item.category == 'Work')? '#C0EB6A' :
                   (item.category == 'Wishlist')? '#FAD06C' :
-                  (item.category == 'Personal')? '#FF92A9' : '#FFF'
+                  (item.category == 'Learn' )? 'blue' :
+                  (item.category == 'Personal')? '#FF92A9' :
+                  (item.category == 'Test')? '#FF92A9' : '#777'
                 }
               ]}
+              onLongPress={() => this.confirmDeleteNote(item.id)}
               onPress={() => this.props.navigation.navigate('EditNote', item)}>
-              
               <View style={{flex:1, height:'100%', marginLeft:10}}>
                 <View style={styles.timeView}>
-                  <Text style={styles.text} numberOfLines={1}>{item.time}</Text>
+                  <Text style={styles.text} numberOfLines={1}>{moment(item.updateAt).format('DD MMM')}</Text>
                 </View>
                 <View style={styles.titleView}>
                   <Text style={[styles.text, {fontSize:20}]} numberOfLines={1}>{item.title}</Text>
                 </View>
                 <View style={styles.categoryView}>
-                  <Text style={styles.text} numberOfLines={1}>{item.category}</Text>
+                  <Text style={styles.text} numberOfLines={1}>{item.category == null ? '-' :item.category} </Text>
                 </View>
                 <View style={styles.noteView}>
                   <Text style={styles.text} numberOfLines={4}>{item.note}</Text>
@@ -37,9 +93,9 @@ class listData extends Component{
             </TouchableOpacity>
           )}
           numColumns={2}
-          keyExtractor={(item,index)=>index.toString()}
-        >
-        </FlatList>
+          keyExtractor={(item,index)=>item.id+' '}
+        />
+        {this.props.notes.Loading == true ? (<ActivityIndicator size="large" color="#00ff00" /> ) : null}
       </View>
     )
   }
@@ -56,6 +112,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     padding:11,
     borderRadius: 5,
+    minHeight: 170, 
     maxHeight: 170,
     shadowColor: "#000",
     shadowOffset: {
@@ -87,4 +144,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default listData;
+const mapStateToProps = ( state ) => {
+    return (
+        notes: state.notes
+    )
+}
+export default connect(mapStateToProps)(ListData);

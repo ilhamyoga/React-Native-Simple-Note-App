@@ -1,31 +1,46 @@
 import React,{Component} from "react";
-import { Image, View } from "react-native";
+import { Image, View, FlatList, Alert} from "react-native";
 import { Container, Content, Text, List, Left, ListItem, TouchableHighlight } from "native-base";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Modal from "../Components/modalShow";
 
-const routes = [
-  {
-    name:"Personal",
-    icon:"user-circle",
-  },
-  {
-    name:"Work",
-    icon:"briefcase",
-  },
-  {
-    name:"Wishlist",
-    icon:"list-alt",
+import { getByCategory } from '../publics/redux/actions/notes'
+import { getCategory, deleteCategory } from '../publics/redux/actions/category'
+import { connect } from 'react-redux'
+
+class SideBar extends Component {
+
+  confirmDeleteCategory(id){
+    //handler for Long Click
+    Alert.alert(
+      'Warning !',
+      'Are you sure delete this category ?',
+      [
+        {
+          text: 'No',
+          style: 'cancel',
+        },
+        {text: 'Yes', onPress: () => this.deleteDataCategory(id)},
+      ],
+      {cancelable: false},
+    );
   }
-];
 
-export default class SideBar extends Component {
+  deleteDataCategory(id) {
+    this.props.dispatch(deleteCategory(id))
+  }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        data:routes
-    }
+  componentDidMount = () => {
+    this.getDataCategory()
+  }
+
+  getDataCategory = () => {
+    this.props.dispatch(getCategory())
+  }
+
+  pickCategory(id){
+    this.props.dispatch(getByCategory(id))
+    this.props.navigation.closeDrawer()
   }
 
   render() {
@@ -41,30 +56,33 @@ export default class SideBar extends Component {
             />
             <Text style={{marginTop:20, marginBottom:20, fontSize:20}}>Maximilian Rodel</Text>
           </View>
-          <List
-            dataArray={routes}
-            renderRow={data => {
-              return (
+          <View>
+            <FlatList
+              data={this.props.category.data}
+              renderItem={({ item, index }) => (
                 <ListItem
                   noBorder
-                  onPress={() => this.props.navigation.navigate(data.name)}>
+                  onLongPress={() => this.confirmDeleteCategory(item.id)}
+                  onPress={() => this.pickCategory(item.id)}>
                   <Left>
-                    <Icon
-                      name={data.icon}
-                      style={{ color: "#000", fontSize: 28, width: 38 }}
+                    <Image
+                      style={{ height: 30, width: 30, marginRight:14}}
+                      source={
+                        {uri:item.icon_image}
+                      }
                     />
-                    <Text style={{ fontSize: 18 }}>{data.name}</Text>
+                    <Text style={{ fontSize: 18 }}>{item.category}</Text>
                   </Left>
                 </ListItem>
-              );
-            }}
-          />
+              )}
+            />
+          </View>
           <List>
             <ListItem noBorder>
               <Left>
                 <Icon
                   name='plus-circle'
-                  style={{ color: "#000", fontSize: 28, width: 38 }}
+                  style={{ color: "#000", fontSize: 28, width: 40, marginLeft:3 }}
                 />
                 <Modal />
               </Left> 
@@ -75,3 +93,10 @@ export default class SideBar extends Component {
     );
   }
 }
+
+const mapStateToProps = ( state ) => {
+  return (
+    category: state.category
+  )
+}
+export default connect(mapStateToProps)(SideBar);
