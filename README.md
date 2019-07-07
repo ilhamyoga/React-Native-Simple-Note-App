@@ -16,10 +16,11 @@ const url = 'http://192.168.6.195:3000';
 ```
 npm start
 ```
-6. After that, running the program in developer mode by entering the command below and connect your Android with USB and make sure the debugging USB is active (<b>SKIP THIS STEP if you use the APK release</b>)
+6. After that, running the program for using application in developer mode by entering the command below and connect your Android with USB and make sure the debugging USB is active (<b>SKIP THIS STEP if you use the APK release</b>)
 ```
 react-native run-android
 ```
-7. And finally, if it's like the picture below, the application was successfully executed!
-## DEMO APPLICATION
+7. Finally, open the application in your android
+### SCREENSHOT
+### DEMO APPLICATION
 
