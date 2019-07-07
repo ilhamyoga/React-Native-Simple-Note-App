@@ -29,5 +29,3 @@ react-native run-android
     <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/AddNote.png" width=200 align="center" style="margin-right:100px"/>
 </p>
 
-## DEMO APPLICATION
-
