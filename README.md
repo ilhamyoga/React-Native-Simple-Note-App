@@ -23,11 +23,11 @@ react-native run-android
 7. Finally, open the application in your android
 ## SCREENSHOT
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/HomeScreen.png" width=200 align="center" style="margin-right:50px"/>
-    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/Drawer.png" width=200 align="center" style="margin-right:50px"/>
-    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/AddCategory.png" width=200 align="center" style="margin-right:50px"/>
-    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/AddNote.png" width=200 align="center" style="margin-right:50px"/>
-    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/EditNote.png" width=200 align="center" style="margin-right:50px"/>
+    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/HomeScreen.png" width=200 align="center" style="margin-right:100px"/>
+    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/Drawer.png" width=200 align="center" style="margin-right:100px"/>
+    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/AddCategory.png" width=200 align="center" style="margin-right:100px"/>
+    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/AddNote.png" width=200 align="center" style="margin-right:100px"/>
+    <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/EditNote.png" width=200 align="center" style="margin-right:100px"/>
 </p>
 
 ## DEMO APPLICATION
