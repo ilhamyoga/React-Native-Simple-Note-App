@@ -21,6 +21,7 @@ npm start
 react-native run-android
 ```
 7. Finally, open the application in your android
-### SCREENSHOT
-### DEMO APPLICATION
+## SCREENSHOT
+
+## DEMO APPLICATION
 
