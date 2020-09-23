@@ -1,8 +1,8 @@
 # React Native Simple Note App
-in this application I use redux because by using Redux we can simply make one state and state that can be accessed on any component. besides that redux is like a database on the frontend called a store and there is only one store in an application called Single Source of Truth
+in this application I use redux because by using Redux we can simply make one state and state that can be accessed on any component. besides that redux is like a database on the frontend called a store and there is only one store in an application called Single Source of Truth.
 ## Steps for using this program
-1. Clone repository [REST API Note App](https://github.com/ilhamyoga/RESTful-notes-app.git) as the backend(server) and don't forget to follow the guide on how to install it
-2. If you succes in installing backend(server), next steps clone this repository
+1. Clone repository [REST API Note App](https://github.com/ilhamyoga/RESTful-notes-app.git) as the backend(server) and don't forget to follow the guide on how to install it.
+2. If you succes in installing backend(server), next steps clone this repository.
 3. Next, enter the command as below to install module.
 ```
 npm install //to install module
