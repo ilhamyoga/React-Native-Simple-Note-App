@@ -16,7 +16,7 @@ const url = 'http://192.168.6.195:3000'; //change here
 ```
 react-native run-android
 ```
-7. Finally, open the application in your android
+
 ## SCREENSHOT
 <p align="center">
     <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/HomeScreen.png" width=200 align="center" style="margin-right:100px"/>
