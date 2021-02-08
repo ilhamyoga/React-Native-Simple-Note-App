@@ -26,6 +26,4 @@ react-native run-android
 </p>
 
 ## DEMO APPLICATION
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UsG40uSUwx0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 [<img src="https://img.youtube.com/vi/UsG40uSUwx0/maxresdefault.jpg" width="560" height="315">](https://youtu.be/UsG40uSUwx0)
