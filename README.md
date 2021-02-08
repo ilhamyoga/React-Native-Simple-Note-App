@@ -21,6 +21,7 @@ react-native run-android
 You can try directly & install the application on your device by downloading the application [Here (Simple Note.apk)](https://drive.google.com/file/d/1WMAcmPkeOsbo7pmSi-msde0exP9zJlkx/view?usp=sharing)
 
 
+
 ## SCREENSHOT
 <p align="center">
     <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/HomeScreen.png" width=200 align="center" style="margin-right:100px"/>
@@ -30,6 +31,4 @@ You can try directly & install the application on your device by downloading the
 </p>
 
 ## DEMO APPLICATION
-<p align="center">
-[Watch Here](https://youtu.be/UsG40uSUwx0)
-</p>
+[<img src="https://img.youtube.com/vi/UsG40uSUwx0/maxresdefault.jpg" width="480" height="300"/>](https://youtu.be/UsG40uSUwx0)
