@@ -17,6 +17,9 @@ const url = 'http://192.168.6.195:3000'; //change here
 react-native run-android
 ```
 
+### APK
+You can try directly & install the application on your device by downloading the application [Here (Simple Note.apk)](https://drive.google.com/file/d/1WMAcmPkeOsbo7pmSi-msde0exP9zJlkx/view?usp=sharing)
+
 ## SCREENSHOT
 <p align="center">
     <img src="https://raw.githubusercontent.com/ilhamyoga/notes-app-react-native-redux/master/screenshot/HomeScreen.png" width=200 align="center" style="margin-right:100px"/>
@@ -26,4 +29,6 @@ react-native run-android
 </p>
 
 ## DEMO APPLICATION
+<p align="center">
 [<img src="https://img.youtube.com/vi/UsG40uSUwx0/maxresdefault.jpg" width="560" height="315">](https://youtu.be/UsG40uSUwx0)
+</p>
