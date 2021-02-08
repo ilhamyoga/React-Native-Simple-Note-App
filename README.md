@@ -31,5 +31,5 @@ You can try directly & install the application on your device by downloading the
 
 ## DEMO APPLICATION
 <p align="center">
-[<img src="https://img.youtube.com/vi/UsG40uSUwx0/maxresdefault.jpg" width="500" height="300">](https://youtu.be/UsG40uSUwx0)
+[Watch Here](https://youtu.be/UsG40uSUwx0)
 </p>
